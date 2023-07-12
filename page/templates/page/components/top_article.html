@@ -1,0 +1,29 @@
+{% load thumbnail %}
+
+<article class="col-sm-4">
+    <div class="row">
+        <div class="col-2 text-muted fs-2 op-02">
+            0{{ count }}
+        </div>
+        <div class="col-10 mt-3">
+            <div>
+                <a href="{{ post.user.profile.get_all_post_url }}" class="text-decoration-none text-muted">
+                    <img src="{{ post.user.profile.avatar|thumbnail_url:'avatar' }}" class="rounded-circle" alt="">
+                    <small class="ms-2">{{ post.user.get_full_name }}</small>
+                </a>
+            </div>
+            <div>
+
+                <h2 class="h6 mt-1">
+                    <a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">
+                        {{ post.title }}
+                    </a>
+                </h2>
+                <ul class="list-inline fs-12 op-04">
+                    <li class="list-inline-item">{{ post.created_at|date }}</li>
+                    <li class="list-inline-item">{{ post.view_count }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</article>
